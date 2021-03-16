@@ -8,22 +8,11 @@
 #include <Wire.h> 
 #include "SSD1306.h"
 
-//#define BLYNK_PRINT Serial
-
 
 #include <ESP8266WiFi.h>
 
 #include <BlynkSimpleEsp8266.h>
-///////is this needed for BlynkTimer
 
-// You should get Auth Token in the Blynk App.
-// Go to the Project Settings (nut icon).
-//char auth[] = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-
-// Your WiFi credentials.
-// Set password to "" for open networks.
-//char ssid[] = "XXXX";
-//char pass[] = "XXXXXX";
 
 #include <DHT.h>
 
@@ -43,8 +32,6 @@ SSD1306  display(0x3C, D3, D5);
 DHT dht(DHTPIN, DHTTYPE);
 
 BlynkTimer timer;
-////heres the issue - commented as i thought it was to do with the blynk software 
-//is this okay to use as a timer feature on its own
 
 void setup(){
   Serial.begin(115200);
@@ -96,16 +83,5 @@ void loop(){
 //sending data to server - no longer needed
 void sendSensor()
 {
-  /*float h = dht.readHumidity();  //Read the humidity
-  delay(3000);
-  float t = dht.readTemperature(); // or dht.readTemperature(true) for Fahrenheit
 
-  if (isnan(h) || isnan(t)) {
-    Serial.println("Failed to read from DHT sensor!");
-    return;
-  }*/
-  // You can send any value at any time.
-  // Please don't send more that 10 values per second.
-  //Blynk.virtualWrite(V5, h);
-  //Blynk.virtualWrite(V6, t);
 }
